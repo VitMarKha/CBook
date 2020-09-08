@@ -3,18 +3,18 @@
 #define MAXLINE 1000
 
 int		get_line(char s[], int lim);
-void	reverse(char s[]);
+void	reverse(char to[], char from[], int lim);
 
 int		main(void)
 {
 	int		len;
 	char	line[MAXLINE];
+	char	line_revers[MAXLINE];
 
 	while ((len = get_line(line, MAXLINE)) > 0)
 	{
-		printf("Reverse: ");
-		reverse(line);
-		printf("\n");
+		reverse(line_revers, line, len);
+		printf("Reverse: %s\n", line_revers);
 	}
 	return (0);
 }
@@ -37,16 +37,16 @@ int		get_line(char s[], int lim)
 	return (i);
 }
 
-void	reverse(char s[])
+void	reverse(char to[], char from[], int lim)
 {
-	int	len;
-
-	len = 0;
-	while (s[len] != '\n')
-		++len;
-	while (len >= 0)
+	int	i;
+	
+	i = 0;
+	while (i < (lim - 1))
 	{
-		printf("%c", s[len]);
-		--len;
+		to[lim - 2 - i] = from[i];
+		++i;
 	}
+	to[lim - 1] = '\n';
+	to[lim] = '\0';
 }
