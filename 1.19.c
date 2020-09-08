@@ -40,7 +40,7 @@ int		get_line(char s[], int lim)
 void	reverse(char to[], char from[], int lim)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < (lim - 1))
 	{
