@@ -1,8 +1,6 @@
 #include <stdio.h>
 
 #define MAXLINE 1000
-#define STRLEN 10
-#define NEWLINE '\n'
 
 int		get_line(char s[], int lim);
 void	delet_coment(char to[], char from[]);
