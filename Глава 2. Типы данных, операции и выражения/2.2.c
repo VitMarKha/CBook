@@ -27,19 +27,13 @@ int	get_line(char s[], int lim)
 		if ((c = getchar()) != EOF)
 		{
 			if (c != '\n')
-			{
-				s[i] = c;
-				++i;
-			}
+				s[i++] = c;
 		}
 		else
 			break ;
 	}
 	if (c == '\n')
-	{
-		s[i] = '\n';
-		++i;
-	}
+		s[i++] = '\n';
 	s[i] = '\0';
 	return (i);
 }
