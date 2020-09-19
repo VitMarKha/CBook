@@ -4,17 +4,18 @@
 
 #define MAXLINE 1000
 
-int	strlenf(char s[]);
-int	strindex_right(char s[], char t[]);
-int	get_line(char s[], int lim);
+int		strlenf(char s[]);
+int		strindex_right(char s[], char t[]);
+int		get_line(char s[], int lim);
 
-char patern[] = "outs";
+char	patern[] = "outs";
 
 int	main(void)
 {
-	char line[MAXLINE];
-	int found = 0;
-	
+	char	line[MAXLINE];
+	int found;
+
+	found = 0;
 	while (get_line(line, MAXLINE) > 0)
 	{
 		if (strindex_right(line, patern) >= 0)
@@ -23,9 +24,10 @@ int	main(void)
 			++found;
 		}
 	}
-	printf("Found in %d lines",found);
-	return found;
+	printf("Found in %d lines", found);
+	return (found);
 }
+
 /* strindex_right: возвращает самый правый индекс вхождения строки t в строке s, или -1 если вхождения нет */
 int	strindex_right(char s[], char t[])
 {
@@ -33,12 +35,12 @@ int	strindex_right(char s[], char t[])
 	int j;
 	int len;
 	int len_patern;
-	
+
 	i = 0;
 	len = strlenf(s);
 	len_patern = strlenf(t);
-	printf("Len str: %d\n",len);
-	printf("len patern: %d\n",len_patern);
+	printf("Len str: %d\n", len);
+	printf("len patern: %d\n", len_patern);
 	while (len >= 0)
 	{
 		if (s[len] == t[len_patern])
@@ -72,7 +74,7 @@ int	get_line(char s[], int lim)
 	return (i);
 }
 
-int strlenf(char s[])
+int	strlenf(char s[])
 {
 	int i;
 
