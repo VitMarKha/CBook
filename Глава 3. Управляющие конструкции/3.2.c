@@ -2,9 +2,9 @@
 
 #define MAXLINE 1000
 
-void escape(char s[], char t[]);
+void	escape(char s[], char t[]);
 
-int	main(void)
+int		main(void)
 {
 	char str1[MAXLINE] = "123\t456\nasdasda\0";
 	char str2[MAXLINE];
@@ -12,10 +12,10 @@ int	main(void)
 	printf("Str2: %s\n", str2);
 	escape(str1, str2);
 	printf("Str2 after escape: %s", str2);
-	return 0;
+	return (0);
 }
 
-void escape(char s[], char t[])
+void	escape(char s[], char t[])
 {
 	int i;
 	int j;

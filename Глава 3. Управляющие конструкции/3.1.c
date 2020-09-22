@@ -2,8 +2,8 @@
 
 #define T 10
 
-int binsearch(int x, int v[], int n);
-int fasrt_binsearch(int x, int v[], int n);
+int	binsearch(int x, int v[], int n);
+int	fasrt_binsearch(int x, int v[], int n);
 
 int	main(void)
 {
@@ -16,14 +16,13 @@ int	main(void)
 		v[i] = i;
 		printf("%d ", v[i]);
 	}
-
 	printf("\nBinsearch: %d\n", binsearch(search, v, 10));
 	printf("Fasrt binsearch: %d", fasrt_binsearch(search, v, 10));
 	return 0;
 }
 
 /* fasrt_binsearch: поиск x в v[0] <= v[1] <= ... <= v[n -1] */
-int fasrt_binsearch(int x, int v[], int n)
+int	fasrt_binsearch(int x, int v[], int n)
 {
 	int low;
 	int mid;
@@ -48,7 +47,7 @@ int fasrt_binsearch(int x, int v[], int n)
 }
 
 /* binsearch: поиск x в v[0] <= v[1] <= ... <= v[n -1] */
-int binsearch(int x, int v[], int n)
+int	binsearch(int x, int v[], int n)
 {
 	int low;
 	int mid;
