@@ -16,7 +16,6 @@ void revers_stack(void);
 void optovar(int n, double f);
 double vartoop(int n);
 
-
 /* Калькулятор с обратной польско записью */
 int main(void)
 {
