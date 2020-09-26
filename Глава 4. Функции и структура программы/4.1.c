@@ -8,17 +8,17 @@ int		strlenf(char s[]);
 int		strindex_right(char s[], char t[]);
 int		get_line(char s[], int lim);
 
-char	patern[] = "outs";
+char	pattern[] = "outs";
 
 int	main(void)
 {
 	char	line[MAXLINE];
-	int found;
+	int		found;
 
 	found = 0;
 	while (get_line(line, MAXLINE) > 0)
 	{
-		if (strindex_right(line, patern) >= 0)
+		if (strindex_right(line, pattern) >= 0)
 		{
 			printf("String: %s", line);
 			++found;
@@ -28,25 +28,29 @@ int	main(void)
 	return (found);
 }
 
-/* strindex_right: возвращает самый правый индекс вхождения строки t в строке s, или -1 если вхождения нет */
+/*
+** strindex_right: возвращает самый правый индекс
+** вхождения строки t в строке s, или -1 если вхождения нет
+*/
+
 int	strindex_right(char s[], char t[])
 {
 	int i;
 	int j;
 	int len;
-	int len_patern;
+	int len_pattern;
 
 	i = 0;
 	len = strlenf(s);
-	len_patern = strlenf(t);
+	len_pattern = strlenf(t);
 	printf("Len str: %d\n", len);
-	printf("len patern: %d\n", len_patern);
+	printf("len pattern: %d\n", len_pattern);
 	while (len >= 0)
 	{
-		if (s[len] == t[len_patern])
+		if (s[len] == t[len_pattern])
 		{
 			j = len;
-			while (s[j--] == t[len_patern--])
+			while (s[j--] == t[len_pattern--])
 			{
 				if (s[j] == t[0])
 				{

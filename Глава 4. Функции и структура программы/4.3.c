@@ -9,13 +9,16 @@ int getop(char s[]);
 void push(double f);
 double pop(void);
 
-/* Калькулятор с обратной польско записью */
-int main(void)
+/*
+** Калькулятор с обратной польско записью
+*/
+
+int		main(void)
 {
-	int type;
-	double op1;
-	double op2;
-	char s[MAXOP];
+	int		type;
+	double	op1;
+	double	op2;
+	char	s[MAXOP];
 
 	while ((type = getop(s)) != EOF )
 	{
@@ -23,24 +26,24 @@ int main(void)
 		{
 			case NUMBER:
 				push(atof(s));
-				break;
+				break ;
 			case '+':
 				push(pop() + pop());
-				break;
+				break ;
 			case '*':
 				push(pop() * pop());
-				break;
+				break ;
 			case '-':
 				op2 = pop();
 				push(pop() - op2);
-				break;
+				break ;
 			case '/':
 				op2 = pop();
 				if (op2 != 0.0)
 					push(pop() / op2);
 				else
 					printf("Error: zero divisoe\n");
-				break;
+				break ;
 			case '%':
 				op2 = pop();
 				if (op2 != 0.0)
@@ -50,25 +53,28 @@ int main(void)
 				}
 				else
 					printf("Error: zero divisoe\n");
-				break;
+				break ;
 			case '\n':
 				printf("\t%.8g\n", pop());
-				break;
+				break ;
 			default:
 				printf("Error: unknow command %s\n", s);
-				break;
+				break ;
 		}
 	}
 	return (0);
 }
-					   
+
 #define MAXVAL 100 /* максимальная глубина стека */
 
-int sp = 0; /* следующая свободная позиция в стеке */
-double val[MAXVAL]; /* стек операндов */
+int		sp = 0; /* следующая свободная позиция в стеке */
+double	val[MAXVAL]; /* стек операндов */
 
-/* push: помещает число f в стек оперендов */
-void push(double f)
+/*
+** push: помещает число f в стек оперендов
+*/
+
+void	push(double f)
 {
 	if (sp < MAXVAL)
 		val[sp++] = f;
@@ -76,8 +82,11 @@ void push(double f)
 		printf("Error: stack full, can't push %g\n", f);
 }
 				
-/* pop: извлекает и возвращает верхнее число из стека */
-double pop(void)
+/*
+** pop: извлекает и возвращает верхнее число из стека
+*/
+
+double	pop(void)
 {
 	if (sp > 0)
 		return val[--sp];
@@ -90,11 +99,14 @@ double pop(void)
 
 #include <ctype.h>
 
-int getch(void);
-void ungetch(int);
+int		getch(void);
+void	ungetch(int);
 
-/* getop: извлекает следующий операнд или знак операции */
-int getop(char s[])
+/*
+** getop: извлекает следующий операнд или знак операции
+*/
+
+int		getop(char s[])
 {
 	int i;
 	int c;
@@ -115,15 +127,15 @@ int getop(char s[])
 
 #define BUFSIZE 100
 
-char buf[BUFSIZE]; /* буфер для ungetch */
-int bufp = 0; /* следующая свободная позицыя в buf */
-				
-int getch(void)
+char	buf[BUFSIZE]; /* буфер для ungetch */
+int		bufp = 0; /* следующая свободная позицыя в buf */
+
+int		getch(void)
 {
 	return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
-void ungetch(int c)
+void	ungetch(int c)
 {
 	if (bufp >= BUFSIZE)
 		printf("ungetch: too many characters\n");
