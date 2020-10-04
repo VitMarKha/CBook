@@ -35,7 +35,7 @@ int strncmp2(char *s, char *t, int n)
 	return (*--s - *--t);
 }
 
-/* strcat: копирует n количество символов строки t в конец строки s */
+/* strncat2: копирует n количество символов строки t в конец строки s */
 void strncat2(char *s, char *t, int n)
 {
 	while (*s != '\0')
