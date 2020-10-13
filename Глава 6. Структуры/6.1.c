@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAXWORLD 100
-#define NKEYS 5 //(sizeof(keytab) / sizeof(struct key))
+#define NKEYS 4 //(sizeof(keytab) / sizeof(struct key))
 
 struct key {
 	char *word;
@@ -82,11 +82,11 @@ int getworld(char *word, int lim)
 		*w = '\0';
 		return (c);
 	}
-	if (isalpha(c) || c == '_')
+	if (isalpha(c))
 	{
 		while (--lim > 0)
 		{
-			if (!isalnum(*w = getch()) && *w != '_')
+			if (!isalnum(*w = getch()))
 			{
 				ungetch(*w);
 				break ;
