@@ -1,4 +1,5 @@
 # CBook
-Решения задач из книги «Язык программирования Си» Деннис Ритчи, Брайан Керниган.
 
-Компилирование было с флагами: "gcc -Wall -Wextra -Werror".
+Solutions to exercises from the book "The C Programming Language" by Dennis Ritchie, Brian Kernighan.
+
+The compilation was with flags: ``gcc -Wall -Wextra -Werror``.
